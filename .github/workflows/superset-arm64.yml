@@ -16,7 +16,4 @@ jobs:
         with:
           version: latest
       - name: build the image
-        run: |
-        docker buildx build \
-          --tag andrewcstewart/superset-arm:latest \
-          --platform linux/arm64 .
+        run: docker buildx build --tag andrewcstewart/superset-arm:latest --platform linux/arm64 .
