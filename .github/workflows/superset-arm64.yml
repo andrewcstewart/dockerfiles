@@ -1,3 +1,4 @@
+
 name: build our image
 
 on:
@@ -16,7 +17,7 @@ jobs:
         with:
           version: latest
       - name: build the image
-        run: | 
+        run: |
           docker buildx build \
-          --tag your-username/multiarch-example:latest \
+          --tag andrewcstewart/superset-arm:latest \
           --platform linux/arm64 .
