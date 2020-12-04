@@ -9,3 +9,5 @@ RUN mkdir /app \
             libsasl2-dev libldap2-dev
 
 RUN pip install apache-superset
+
+ENTRYPOINT ["superset"]
