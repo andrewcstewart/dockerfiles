@@ -16,5 +16,6 @@ jobs:
       - name: build the image
         run: |
           docker buildx build \
+          --platform linux/arm64  \
           --tag andrewcstewart/superset-arm \
-          --platform linux/arm64 ./superset-arm64/
+          --file ./superset-arm64/Dockerfile .
