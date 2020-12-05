@@ -28,7 +28,7 @@ RUN apt-get update -y \
     cmake \
     unzip \
     && rm -rf /var/lib/apt/lists/*
-RUN pip3 install cython six numpy pandas pytest psutil            
+RUN pip3 install Cython six numpy pandas pytest psutil            
 
 WORKDIR /build
 ADD https://github.com/apache/arrow/archive/apache-arrow-0.15.1.zip /build/ 
