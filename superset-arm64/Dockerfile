@@ -2,7 +2,7 @@ FROM arm64v8/python:3.7.9
 
 RUN mkdir /app \
 && apt-get update -y \
-&& apt-get install -y --no-install-recommends \
+&& apt-get install -y \
     build-essential \
     libssl-dev libffi-dev \
     python3-dev python3-pip \
