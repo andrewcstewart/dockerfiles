@@ -3,8 +3,8 @@ FROM arm64v8/python:3.7.9
 
 
 WORKDIR /build
-RUN wget https://github.com/apache/arrow/archive/apache-arrow-0.15.1.zip
-RUN unzip arrow-apache-arrow-0.15.1.zip
+ADD https://github.com/apache/arrow/archive/apache-arrow-0.15.1.zip /build/
+# RUN unzip arrow-apache-arrow-0.15.1.zip
 WORKDIR /build/arrow-apache-arrow-0.15.1/cpp/release
 
 ENV ARROW_HOME=/usr/local/lib
