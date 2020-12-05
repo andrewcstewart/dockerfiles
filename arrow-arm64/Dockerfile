@@ -10,18 +10,20 @@ ENV PYARROW_WITH_PARQUET=1
 ENV PYARROW_WITH_CUDA=1
 ENV PYARROW_WITH_PLASMA=1
 
-RUN apt-get install -y libjemalloc-dev libboost-dev \
-                       libboost-filesystem-dev \
-                       libboost-system-dev \
-                       libboost-regex-dev \
-                       python3-dev \
-                       autoconf \
-                       flex \
-                       bison \
-                       libssl-dev \
-                       curl \
-                       cmake \
-                       unzip
+RUN apt-get install -y \
+    libjemalloc-dev \
+    libboost-dev \
+    libboost-filesystem-dev \
+    libboost-system-dev \
+    libboost-regex-dev \
+    python3-dev \
+    autoconf \
+    flex \
+    bison \
+    libssl-dev \
+    curl \
+    cmake \
+    unzip
 RUN pip3 install six numpy pandas cython pytest psutil            
 
 WORKDIR /build
