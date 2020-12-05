@@ -1,15 +1,14 @@
 # from https://gist.github.com/heavyinfo/04e1326bb9bed9cecb19c2d603c8d521
 FROM arm64v8/ubuntu:bionic
 
-
-WORKDIR /build
-ADD https://github.com/apache/arrow/archive/apache-arrow-0.15.1.zip /build/ 
-RUN unzip arrow-apache-arrow-0.15.1.zip
-WORKDIR /build/arrow-apache-arrow-0.15.1/cpp/release
-
 ENV ARROW_HOME=/usr/local/lib
 ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-
+ENV PYARROW_WITH_FLIGHT=1
+ENV PYARROW_WITH_GANDIVA=1
+ENV PYARROW_WITH_ORC=1
+ENV PYARROW_WITH_PARQUET=1
+ENV PYARROW_WITH_CUDA=1
+ENV PYARROW_WITH_PLASMA=1
 
 RUN apt-get install -y libjemalloc-dev libboost-dev \
                        libboost-filesystem-dev \
@@ -21,8 +20,14 @@ RUN apt-get install -y libjemalloc-dev libboost-dev \
                        bison \
                        libssl-dev \
                        curl \
-                       cmake
+                       cmake \
+                       unzip
 RUN pip3 install six numpy pandas cython pytest psutil            
+
+WORKDIR /build
+ADD https://github.com/apache/arrow/archive/apache-arrow-0.15.1.zip /build/ 
+RUN unzip arrow-apache-arrow-0.15.1.zip
+WORKDIR /build/arrow-apache-arrow-0.15.1/cpp/release
 
 RUN cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \       
       -DCMAKE_INSTALL_LIBDIR=lib  \
@@ -49,12 +54,6 @@ WORKDIR /build/arrow-apache-arrow-0.15.1/cpp/python
 
 RUN pip3 install -r requirements.txt
 
-ENV PYARROW_WITH_FLIGHT=1
-ENV PYARROW_WITH_GANDIVA=1
-ENV PYARROW_WITH_ORC=1
-ENV PYARROW_WITH_PARQUET=1
-ENV PYARROW_WITH_CUDA=1
-ENV PYARROW_WITH_PLASMA=1
 
 RUN python3 setup.py build_ext --inplace
 RUN python3 setup.py install
