@@ -42,12 +42,12 @@ RUN cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \
       -DARROW_BUILD_TESTS=ON  \
       -DPYTHON_EXECUTABLE=/usr/bin/python3  \
       ..
-make -j4
-sudo make install
+RUN make -j4
+RUN make install
 
 WORKDIR /build/arrow-apache-arrow-0.15.1/cpp/python
 
-pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 ENV PYARROW_WITH_FLIGHT=1
 ENV PYARROW_WITH_GANDIVA=1
