@@ -29,6 +29,7 @@ RUN apt-get update -y \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 RUN pip3 install Cython
+RUN pip3 install numpy
 RUN pip3 install six numpy pandas pytest psutil            
 
 WORKDIR /build
