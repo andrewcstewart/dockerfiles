@@ -31,7 +31,7 @@ FROM arm64v8/python:${PYTHON_VERSION} AS dist
 ENV SUPERSET_HOME=/var/lib/superset/
 WORKDIR ${SUPERSET_HOME}
 COPY --from=build ${SUPERSET_HOME} .
-COPY requirements.txt .
+COPY ./superset-arm64/requirements.txt .
 
 # Create package to install
 RUN python setup.py sdist
