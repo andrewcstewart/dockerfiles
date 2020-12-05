@@ -10,7 +10,8 @@ ENV PYARROW_WITH_PARQUET=1
 ENV PYARROW_WITH_CUDA=1
 ENV PYARROW_WITH_PLASMA=1
 
-RUN apt-get install -y \
+RUN apt-get update -y \
+    && apt-get install -y \
     libjemalloc-dev \
     libboost-dev \
     libboost-filesystem-dev \
