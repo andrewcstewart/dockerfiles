@@ -18,13 +18,15 @@ RUN apt-get update -y \
     libboost-system-dev \
     libboost-regex-dev \
     python3-dev \
+    python3-pip \
     autoconf \
     flex \
     bison \
     libssl-dev \
     curl \
     cmake \
-    unzip
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
 RUN pip3 install six numpy pandas cython pytest psutil            
 
 WORKDIR /build
