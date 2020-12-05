@@ -1,10 +1,9 @@
 # from https://gist.github.com/heavyinfo/04e1326bb9bed9cecb19c2d603c8d521
-FROM arm64v8/python:3.7.9
+FROM arm64v8/ubuntu:bionic
 
 
 WORKDIR /build
-ADD https://github.com/apache/arrow/archive/apache-arrow-0.15.1.zip /build/ && \
-    unzip arrow-apache-arrow-0.15.1.zip
+ADD https://github.com/apache/arrow/archive/apache-arrow-0.15.1.zip /build/ && unzip arrow-apache-arrow-0.15.1.zip
 WORKDIR /build/arrow-apache-arrow-0.15.1/cpp/release
 
 ENV ARROW_HOME=/usr/local/lib
