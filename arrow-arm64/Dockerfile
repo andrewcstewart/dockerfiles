@@ -34,6 +34,7 @@ RUN pip3 install six numpy pandas pytest psutil
 
 WORKDIR /build
 ADD https://github.com/apache/arrow/archive/apache-arrow-0.15.1.zip . 
+RUN ls -l /build
 # RUN unzip arrow-apache-arrow-0.15.1.zip
 WORKDIR /build/arrow-apache-arrow-0.15.1/cpp/release
 
