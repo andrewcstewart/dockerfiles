@@ -4,7 +4,7 @@ FROM arm64v8/ubuntu:bionic
 ENV ARROW_HOME=/usr/local/lib
 ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 ENV PYARROW_WITH_FLIGHT=1
-ENV PYARROW_WITH_GANDIVA=1
+ENV PYARROW_WITH_GANDIVA=0
 ENV PYARROW_WITH_ORC=1
 ENV PYARROW_WITH_PARQUET=1
 ENV PYARROW_WITH_CUDA=0
@@ -27,6 +27,7 @@ RUN apt-get update -y \
     curl \
     cmake \
     unzip \
+    # llvm \
     && rm -rf /var/lib/apt/lists/*
 RUN pip3 install Cython
 RUN pip3 install numpy
@@ -41,7 +42,7 @@ WORKDIR /build/arrow-apache-arrow-0.15.1/cpp/release
 RUN cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \       
       -DCMAKE_INSTALL_LIBDIR=lib  \
       -DARROW_FLIGHT=ON \
-      -DARROW_GANDIVA=ON  \
+      -DARROW_GANDIVA=OFF  \
       -DARROW_ORC=ON  \
       -DARROW_WITH_BZ2=ON \       
       -DARROW_WITH_ZLIB=ON  \
