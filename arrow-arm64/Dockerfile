@@ -52,7 +52,7 @@ RUN cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \
       -DARROW_PARQUET=ON  \
       -DARROW_PYTHON=ON \
       -DARROW_PLASMA=ON \
-      -DARROW_CUDA=ON \
+      -DARROW_CUDA=OFF \
       -DARROW_BUILD_TESTS=ON  \
       -DPYTHON_EXECUTABLE=/usr/bin/python3  \
       ..
