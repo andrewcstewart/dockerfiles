@@ -36,7 +36,7 @@ RUN pip3 install six numpy pandas pytest psutil
 WORKDIR /build
 ADD https://github.com/apache/arrow/archive/apache-arrow-0.15.1.zip . 
 RUN unzip apache-arrow-0.15.1.zip
-# RUN ls -l /build/apache-arrow-0.15.1/cpp/release
+RUN ls -l /build/apache-arrow-0.15.1/cpp
 WORKDIR /build/apache-arrow-0.15.1/cpp/release
 
 RUN cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \       
