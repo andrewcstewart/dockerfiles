@@ -39,7 +39,7 @@ RUN unzip apache-arrow-0.15.1.zip
 # RUN ls -l /build/apache-arrow-0.15.1/cpp
 RUN ls -l /build/arrow-apache-arrow-0.15.1/cpp
 # WORKDIR /build/apache-arrow-0.15.1/cpp/release
-WORKDIR /bulid/arrow-apache-arrow-0.15.1/cpp/release
+WORKDIR /build/arrow-apache-arrow-0.15.1/cpp/release
 
 RUN cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \       
       -DCMAKE_INSTALL_LIBDIR=lib  \
