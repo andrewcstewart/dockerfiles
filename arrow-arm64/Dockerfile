@@ -6,7 +6,7 @@ ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 ENV PYARROW_WITH_FLIGHT=1
 ENV PYARROW_WITH_GANDIVA=0
 ENV PYARROW_WITH_ORC=1
-ENV PYARROW_WITH_PARQUET=1
+ENV PYARROW_WITH_PARQUET=0
 ENV PYARROW_WITH_CUDA=0
 ENV PYARROW_WITH_PLASMA=1
 
@@ -17,8 +17,6 @@ RUN apt-get update -y \
     libboost-filesystem-dev \
     libboost-system-dev \
     libboost-regex-dev \
-    libparquet-dev \
-    libparquet-glib-dev \
     python3-dev \
     python3-pip \
     cython \
@@ -54,7 +52,7 @@ RUN cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \
       -DARROW_WITH_LZ4=ON \       
       -DARROW_WITH_SNAPPY=ON  \      
       -DARROW_WITH_BROTLI=ON  \       
-      -DARROW_PARQUET=ON  \
+      -DARROW_PARQUET=OFF  \
       -DARROW_PYTHON=ON \
       -DARROW_PLASMA=ON \
       -DARROW_CUDA=OFF \
