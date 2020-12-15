@@ -17,6 +17,8 @@ RUN apt-get update -y \
     libboost-filesystem-dev \
     libboost-system-dev \
     libboost-regex-dev \
+    libparquet-dev \
+    libparquet-glib-dev \
     python3-dev \
     python3-pip \
     cython \
