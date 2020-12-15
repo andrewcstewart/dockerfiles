@@ -66,7 +66,7 @@ RUN make install
 RUN ls -l /build/arrow-apache-arrow-0.15.1/cpp/release
 RUN ls -l /build/arrow-apache-arrow-0.15.1/
 WORKDIR /build/arrow-apache-arrow-0.15.1/python
-RUN ls -l /build/apache-arrow-0.15.1/python
+RUN ls -l /build/arrow-apache-arrow-0.15.1/python
 
 RUN pip3 install -r requirements.txt
 
