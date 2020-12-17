@@ -98,6 +98,6 @@ RUN mkdir /app \
 # RUN apt-mark hold libarrow-dev libarrow-python-dev
 
 # RUN APYARROW_CMAKE_OPTIONS="-DARROW_ARMV8_ARCH=armv8-a" pip install pyarrow
-RUN pip install apache-superset
+RUN pip3 install apache-superset
 
 ENTRYPOINT ["superset"]
