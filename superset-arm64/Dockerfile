@@ -95,7 +95,7 @@ RUN mkdir /app \
 
 # # Install apache arrow headers pegged at version 1.0.1-1
 # RUN apt install libarrow-dev=1.0.1-1 libarrow-python-dev=1.0.1-1
-RUN apt-mark hold libarrow-dev libarrow-python-dev
+# RUN apt-mark hold libarrow-dev libarrow-python-dev
 
 # RUN APYARROW_CMAKE_OPTIONS="-DARROW_ARMV8_ARCH=armv8-a" pip install pyarrow
 RUN pip install apache-superset
