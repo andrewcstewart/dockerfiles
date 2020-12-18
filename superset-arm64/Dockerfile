@@ -81,6 +81,7 @@ RUN mkdir /app \
     libssl-dev libffi-dev \
     python3-dev python3-pip \
     libsasl2-dev libldap2-dev \
+    git-all \
 && rm -rf /var/lib/apt/lists/*            
 
 # from https://discuss.streamlit.io/t/raspberry-pi-streamlit/2900/35
