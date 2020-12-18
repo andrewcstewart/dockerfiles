@@ -9,6 +9,7 @@ ENV PYARROW_WITH_ORC=1
 ENV PYARROW_WITH_PARQUET=0
 ENV PYARROW_WITH_CUDA=0
 ENV PYARROW_WITH_PLASMA=1
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y \
     && apt-get install -y \
