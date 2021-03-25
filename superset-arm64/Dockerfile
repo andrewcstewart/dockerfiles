@@ -17,8 +17,8 @@ RUN superset fab create-admin \
     --email admin@admin.com \
     --password admin
 RUN superset init
-COPY dashboards /dashboards
-ARG DB_STRING
-RUN superset set-database-uri -d speed_test -u $DB_STRING
-RUN superset import-dashboards -p /dashboards
+# COPY dashboards /dashboards
+# ARG DB_STRING
+# RUN superset set-database-uri -d speed_test -u $DB_STRING
+# RUN superset import-dashboards -p /dashboards
 CMD superset run -h 0.0.0.0 -p 8088 --with-threads --reload --debugger
